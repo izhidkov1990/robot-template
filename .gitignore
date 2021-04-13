@@ -1,0 +1,6 @@
+/.venv
+/.vscode
+/log.log
+/test.xlsx
+/tests.py
+/__pycache__
