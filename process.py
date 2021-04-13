@@ -22,10 +22,10 @@ class Process:
                 self.logger.info('Обработка транзакции {} завершена'.format(transactionItem.add_info1))                
             except Exception as err:
                 # Ошибка при обработке транзации
-                raise error_handler.TransactionError('Ошибка при проведении транзакции: {0} {1}'.format(err, transactionItem.add_info1)) 
+                raise error_handler.TransactionError('Ошибка при проведении транзакции: {0}'.format(err), transactionItem) 
         else:
             # Ошибка в бизнесс логике
-            raise error_handler.BusinessError('Ошибка при проверке данных в транзакции {}'.format(transactionItem.add_info1))
+            raise error_handler.BusinessError(text='Ошибка при проверке данных в транзакции', transaction=transactionItem)
                        
                 
         

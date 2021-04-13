@@ -61,15 +61,18 @@ class Error:
             
 
 class BusinessError(Exception):
-    def __init__(self, text):
-        self.txt = text
+    def __init__(self, transaction, text=None):
+        if text:
+            self.txt = text
+        self.transactio = transaction
 
     # TODO BusinessErrorHandler
 
 
 class TransactionError(Exception):
-    def __init__(self, text):
+    def __init__(self, text, transaction):
         self.txt = text
+        self.transactio = transaction
 
     # TODO TransactionErrorHandler
 
