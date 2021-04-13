@@ -12,7 +12,8 @@ class Process:
 
     def start_processing(self, transactionItem):
         #  Проверка входных данных
-        if transactionItem:
+        # transactionItem
+        if True == False:
             try:
                 self.logger.info('Начало обработки транзакции {}'.format(transactionItem.add_info1))
 
@@ -25,7 +26,7 @@ class Process:
                 raise error_handler.TransactionError('Ошибка при проведении транзакции: {0}'.format(err), transactionItem) 
         else:
             # Ошибка в бизнесс логике
-            raise error_handler.BusinessError(text='Ошибка при проверке данных в транзакции', transaction=transactionItem)
+            raise error_handler.BusinessError('Ошибка при проверке данных в транзакции', transactionItem)
                        
                 
         

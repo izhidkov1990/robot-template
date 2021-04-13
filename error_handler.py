@@ -40,12 +40,12 @@ class Error:
         self.txt = None
         self.transaction = None
 
-    def handler(self, exception: Exception, transaction: Transaction):
+    def handler(self, exception: Exception):
 
         """Обработчик исключения"""
 
         self.txt = exception.txt
-        self.transaction = transaction
+        self.transaction = exception.transaction
         self.print_log()
 
         if isinstance(exception, BusinessError):
@@ -54,17 +54,15 @@ class Error:
             pass
         elif isinstance(exception, GetDataError):
             pass
-        self.print_log()
               
     def print_log(self):
         self.logger.error('Произошла {0}'.format(self.txt.lower()))
             
 
 class BusinessError(Exception):
-    def __init__(self, transaction, text=None):
-        if text:
-            self.txt = text
-        self.transactio = transaction
+    def __init__(self, text, transaction):
+        self.txt = text
+        self.transaction = transaction
 
     # TODO BusinessErrorHandler
 
@@ -72,7 +70,7 @@ class BusinessError(Exception):
 class TransactionError(Exception):
     def __init__(self, text, transaction):
         self.txt = text
-        self.transactio = transaction
+        self.transaction = transaction
 
     # TODO TransactionErrorHandler
 
