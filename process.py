@@ -13,13 +13,12 @@ class Process:
     def start_processing(self, transactionItem):
         #  Проверка входных данных
         # transactionItem
-        if True == False:
+        if transactionItem:
             try:
                 self.logger.info('Начало обработки транзакции {}'.format(transactionItem.add_info1))
-
                 # TODO Обработчик транзакции
                 print('Обработка ' + str(transactionItem.add_info1))
-
+                
                 self.logger.info('Обработка транзакции {} завершена'.format(transactionItem.add_info1))                
             except Exception as err:
                 # Ошибка при обработке транзации
